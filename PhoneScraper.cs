@@ -19,6 +19,7 @@ doc.LoadHtml(page);*/
 
 namespace PS
 {
+    // A class to scrape from a certain website..
     class PhoneScraper
     {
         static Excel.Application oXL;
@@ -67,7 +68,7 @@ namespace PS
             }
         }
 
-        //A hardcoded list of phones.
+        //A hardcoded list of phones. 
         private static List<string> GetListOfPhonePages()
         {
             return new List<string>()
@@ -203,6 +204,7 @@ namespace PS
                         if (Int32.TryParse(fixedPrice, out priceInt))
                         {
                             const double EUR_TO_USD = 1.25;
+                            //Probably shouldn't cast like this..
                             double priceDouble = (double)priceInt;
                                     
                             int priceEUR = (int)priceDouble;
@@ -241,7 +243,7 @@ namespace PS
             index++;
         }
         
-
+        //Fills cells of the excel sheet with scraped information
         private static void PopulateExcelSheet(string attribute, string data, int index)
         {
             switch (attribute)
